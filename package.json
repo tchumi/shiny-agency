@@ -23,6 +23,9 @@
       "react-app/jest"
     ]
   },
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
