@@ -1,31 +1,19 @@
-import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 function Survey() {
   const { questionNumber } = useParams()
-  const [question, setQuestion] = useState(1)
-  const [goToResults, setGoToResults] = useState(false)
-
-  return goToResults ? (
+  const questionNumberInt = parseInt(questionNumber)
+  const prevQuestionNumber = questionNumberInt === 1 ? 1 : questionNumberInt - 1
+  const nextQuestionNumber = questionNumberInt + 1
+  return (
     <div>
       <h1>Questionnaire 🧮</h1>
-      <h2>Fin du questionnaire</h2>
-      <Link to="/results">Résultats</Link>
-    </div>
-  ) : (
-    <div>
-      <h1>Questionnaire 🧮</h1>
-      <h2>Question {question}</h2>
-      <button onClick={() => question > 1 && setQuestion(question - 1)}>
-        Question précédente
-      </button>
-      {question === 10 && (
-        <button onClick={() => setGoToResults(true)}>Résultats</button>
-      )}
-      {question < 10 && (
-        <button onClick={() => setQuestion(question + 1)}>
-          Question suivante
-        </button>
+      <h2>Question {questionNumber}</h2>
+      <Link to={`/survey/${prevQuestionNumber}`}>Précédent</Link>
+      {questionNumberInt === 10 ? (
+        <Link to="/results">Résultats</Link>
+      ) : (
+        <Link to={`/survey/${nextQuestionNumber}`}>Suivant</Link>
       )}
     </div>
   )
