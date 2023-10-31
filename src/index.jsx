@@ -7,10 +7,18 @@ import Freelances from './pages/Freelances/'
 import Home from './pages/Home/'
 import Results from './pages/Results/'
 import Survey from './pages/Survey/'
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+    div {
+        font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    }
+`
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <GlobalStyle />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
