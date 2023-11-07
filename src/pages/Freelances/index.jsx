@@ -6,6 +6,7 @@ import colors from '../../utils/style/colors'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { Loader } from '../../utils/style/Atoms'
+import { LoaderWrapper } from '../../utils/style/Atoms'
 
 const CardsContainer = styled.div`
   display: grid;
@@ -27,11 +28,6 @@ const SubTitle = styled.h3`
   padding-bottom: 30px;
   line-height: 50px;
   text-align: center;
-`
-
-const LoaderWrapper = styled.div`
-  display: flex;
-  justify-content: center;
 `
 
 function Freelances() {

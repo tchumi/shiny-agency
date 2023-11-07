@@ -35,4 +35,9 @@ export const Loader = styled.div`
   height: 0;
   width: 0;
 `
+export const LoaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
 export default StyledLink
