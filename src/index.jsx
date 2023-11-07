@@ -7,29 +7,25 @@ import Freelances from './pages/Freelances/'
 import Home from './pages/Home/'
 import Results from './pages/Results/'
 import Survey from './pages/Survey/'
-import { createGlobalStyle } from 'styled-components'
-
-const GlobalStyle = createGlobalStyle`
-    div {
-        font-family: 'Trebuchet MS', Helvetica, sans-serif;
-    }
-    body {
-        margin: 0;
-    }
-`
+import { ThemeProvider } from './utils/context/'
+import GlobalStyle from './utils/style/GlobalStyle'
+import Footer from './components/Footer'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <GlobalStyle />
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/survey/:questionNumber" element={<Survey />} />
-        <Route path="/Results/" element={<Results />} />
-        <Route path="/Freelances/" element={<Freelances />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
+      <ThemeProvider>
+        <GlobalStyle />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/survey/:questionNumber" element={<Survey />} />
+          <Route path="/Results/" element={<Results />} />
+          <Route path="/Freelances/" element={<Freelances />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+        <Footer />
+      </ThemeProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root'),
